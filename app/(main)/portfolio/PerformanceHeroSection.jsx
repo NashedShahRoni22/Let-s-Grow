@@ -1,4 +1,3 @@
-"use client";
 import { TrendingUp, BarChart3, Activity } from "lucide-react";
 
 export default function PerformanceHeroSection() {

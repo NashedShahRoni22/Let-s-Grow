@@ -1,5 +1,5 @@
 import React from 'react'
-import LeaderboardSection from '../components/home/LeaderboardSection'
+import LeaderboardSection from '../../components/home/LeaderboardSection'
 
 export default function page() {
   return (
