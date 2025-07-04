@@ -8,14 +8,10 @@ import Navbar from "./components/shared/Navbar";
 export default function Home() {
   return (
       <main>
-        <Navbar/>
-
         <HeroSection/>
         <TopAssetsSection/>
         <LeaderboardSection/>
         <ReviewsSection/>
-
-        <Footer/>
       </main>
   );
 }

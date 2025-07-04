@@ -403,8 +403,8 @@ export default function LeaderboardSection() {
                                     key={period.id}
                                     onClick={() => setSelectedPeriod(period.id)}
                                     className={`px-6 py-3 rounded-xl font-medium transition-all duration-200 ${selectedPeriod === period.id
-                                            ? 'bg-gradient-to-r from-emerald-600 to-green-600 text-white shadow-lg shadow-emerald-500/25'
-                                            : 'text-gray-400 hover:text-white hover:bg-white/10'
+                                        ? 'bg-gradient-to-r from-emerald-600 to-green-600 text-white shadow-lg shadow-emerald-500/25'
+                                        : 'text-gray-400 hover:text-white hover:bg-white/10'
                                         }`}
                                 >
                                     {period.label}
@@ -562,40 +562,40 @@ export default function LeaderboardSection() {
 
             {/* Custom Animations */}
             <style jsx>{`
-        @keyframes fadeInUp {
-          from {
-            opacity: 0;
-            transform: translateY(30px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-        
-        .animate-fadeInUp {
-          animation: fadeInUp 0.6s ease-out forwards;
-        }
-        
-        .delay-200 {
-          animation-delay: 0.2s;
-        }
-        
-        .delay-300 {
-          animation-delay: 0.3s;
-        }
-        
-        .delay-400 {
-          animation-delay: 0.4s;
-        }
-        
-        .delay-500 {
-          animation-delay: 0.5s;
-        }
-        
-        .delay-1000 {
-          animation-delay: 1s;
-        }
+                @keyframes fadeInUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(30px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+                }
+                
+                .animate-fadeInUp {
+                animation: fadeInUp 0.6s ease-out forwards;
+                }
+                
+                .delay-200 {
+                animation-delay: 0.2s;
+                }
+                
+                .delay-300 {
+                animation-delay: 0.3s;
+                }
+                
+                .delay-400 {
+                animation-delay: 0.4s;
+                }
+                
+                .delay-500 {
+                animation-delay: 0.5s;
+                }
+                
+                .delay-1000 {
+                animation-delay: 1s;
+                }
       `}</style>
         </section>
     );

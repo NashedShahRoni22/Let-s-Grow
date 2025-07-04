@@ -23,7 +23,7 @@ export default function HeroSection() {
   }, []);
 
   return (
-    <section className="min-h-screen bg-gradient-to-br from-slate-900 via-gray-900 to-emerald-900 relative overflow-hidden flex items-center pt-16">
+    <section className="min-h-screen bg-gradient-to-tr from-slate-900 via-gray-900 to-emerald-900 relative overflow-hidden flex items-center pt-16">
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl animate-pulse"></div>

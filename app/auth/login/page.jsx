@@ -29,7 +29,7 @@ export default function Page() {
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-emerald-600/5 rounded-full blur-3xl animate-pulse delay-2000"></div>
       </div>
 
-      <div className="max-w-md w-full space-y-8 relative z-10">
+      <div className="max-w-xl w-full space-y-8 relative z-10 py-16 lg:py-24">
         {/* Logo and Header */}
         <div className="text-center">
           <div className="flex justify-center mb-6">
@@ -154,15 +154,15 @@ export default function Page() {
         <div className="grid grid-cols-3 gap-4 text-center">
           <div className="bg-black/30 backdrop-blur-sm rounded-lg p-4 border border-emerald-500/20">
             <Shield className="h-6 w-6 text-emerald-400 mx-auto mb-2" />
-            <p className="text-white text-sm font-medium">Turbo Security</p>
+            <p className="text-white text-sm font-medium">Security</p>
           </div>
           <div className="bg-black/30 backdrop-blur-sm rounded-lg p-4 border border-emerald-500/20">
             <DollarSign className="h-6 w-6 text-emerald-400 mx-auto mb-2" />
-            <p className="text-white text-sm font-medium">Daily Returns</p>
+            <p className="text-white text-sm font-medium">Gurranted</p>
           </div>
           <div className="bg-black/30 backdrop-blur-sm rounded-lg p-4 border border-emerald-500/20">
             <TrendingUp className="h-6 w-6 text-emerald-400 mx-auto mb-2" />
-            <p className="text-white text-sm font-medium">AI Powered</p>
+            <p className="text-white text-sm font-medium">Growing</p>
           </div>
         </div>
 

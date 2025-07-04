@@ -25,9 +25,6 @@ export default function Navbar() {
             <Link href="/" className="text-gray-300 hover:text-emerald-400 transition-colors font-medium">
               Home
             </Link>
-            <Link href="/invest" className="text-gray-300 hover:text-emerald-400 transition-colors font-medium">
-              Invest
-            </Link>
             <Link href="/portfolio" className="text-gray-300 hover:text-emerald-400 transition-colors font-medium">
               Portfolio
             </Link>
@@ -41,9 +38,6 @@ export default function Navbar() {
 
           {/* Desktop Actions */}
           <div className="hidden md:flex items-center space-x-4">
-            <button className="text-gray-300 hover:text-emerald-400 transition-colors p-2 rounded-lg hover:bg-emerald-500/10">
-              <Search className="h-5 w-5" />
-            </button>
             <button className="text-gray-300 hover:text-emerald-400 transition-colors p-2 rounded-lg hover:bg-emerald-500/10 relative">
               <Bell className="h-5 w-5" />
               <div className="absolute -top-1 -right-1 w-3 h-3 bg-emerald-400 rounded-full animate-pulse"></div>
@@ -78,9 +72,6 @@ export default function Navbar() {
           <div className="px-4 pt-4 pb-6 space-y-4">
             <Link href="/" className="block text-gray-300 hover:text-emerald-400 transition-colors font-medium py-2">
               Home
-            </Link>
-            <Link href="/invest" className="block text-gray-300 hover:text-emerald-400 transition-colors font-medium py-2">
-              Invest
             </Link>
             <Link href="/portfolio" className="block text-gray-300 hover:text-emerald-400 transition-colors font-medium py-2">
               Portfolio
