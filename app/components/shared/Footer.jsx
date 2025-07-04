@@ -122,7 +122,7 @@ export default function Footer() {
 
         {/* Bottom Section */}
         <div className="border-t border-gray-700 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-gray-500 text-sm mb-4 md:mb-0">
+          <p className="text-gray-500 text-sm mb-4 md:mb-0 text-center md:text-left">
             © 2025 Let's Grow. All rights reserved. | Powered by blockchain technology
           </p>
           <div className="flex space-x-6 text-sm">
