@@ -5,7 +5,7 @@ export default function DashboardLayout({ children }) {
     <>
       <Sidebar />
       {/* Main content with left padding on desktop */}
-      <main className="md:pl-64 bg-gradient-to-tr from-slate-900 via-gray-900 to-emerald-950 p-6 min-h-screen overflow-x-hidden">
+      <main className="md:pl-64 bg-gradient-to-tr from-slate-900 via-gray-900 to-emerald-950 min-h-screen overflow-x-hidden">
         {children}
       </main>
     </>

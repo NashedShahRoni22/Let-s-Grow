@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from 'react';
-import { TrendingUp, Menu, X, User, Bell, Search } from 'lucide-react';
+import { TrendingUp, Menu, X, User, Bell } from 'lucide-react';
 import Link from 'next/link';
 
 export default function Navbar() {
