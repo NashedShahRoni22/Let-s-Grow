@@ -9,6 +9,7 @@ import {
   User,
   Clock,
   Calendar,
+  Crown
 } from "lucide-react";
 
 import {
@@ -16,16 +17,26 @@ import {
   CategoryScale,
   LinearScale,
   BarElement,
+  ArcElement, // ✅ ADD THIS
   Title,
   Tooltip,
   Legend,
 } from "chart.js";
-import { Bar } from "react-chartjs-2";
+
+import { Bar, Doughnut } from "react-chartjs-2"; // ✅ ADD Doughnut
 
 export default function DashboardPage() {
   const [dateTime, setDateTime] = useState(new Date());
+  const topInvestors = [
+    { id: 'LGX-0021', amount: 12500 },
+    { id: 'LGX-0345', amount: 9800 },
+    { id: 'LGX-0769', amount: 8200 },
+  ]
+
+  const totalRevenue = topInvestors.reduce((sum, investor) => sum + investor.amount, 0)
   // Register chart components
-  ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
+  ChartJS.register(CategoryScale, LinearScale, BarElement, ArcElement, Title, Tooltip, Legend);
+
 
   // Sample monthly data
   const monthlyInvestmentData = {
@@ -85,6 +96,11 @@ export default function DashboardPage() {
 
   const stats = [
     {
+      label: "Current Balance",
+      value: "$880",
+      icon: <Wallet className="text-emerald-400 w-5 h-5" />,
+    },
+    {
       label: "Total Invested",
       value: "$2,350",
       icon: <ArrowUpRight className="text-green-400 w-5 h-5" />,
@@ -93,11 +109,6 @@ export default function DashboardPage() {
       label: "Withdrawn",
       value: "$1,470",
       icon: <ArrowDownRight className="text-red-400 w-5 h-5" />,
-    },
-    {
-      label: "Current Balance",
-      value: "$880",
-      icon: <Wallet className="text-emerald-400 w-5 h-5" />,
     },
     {
       label: "Active Packages",
@@ -139,41 +150,103 @@ export default function DashboardPage() {
 
       {/* Account Info + Leaderboard */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        {/* Account Info */}
-        <div className="bg-black/30 p-6 rounded-xl border border-emerald-500/20">
-          <h2 className="text-xl font-bold text-white mb-4">Account Info</h2>
-          <div className="flex items-center space-x-4">
-            <div className="w-16 h-16 rounded-full bg-emerald-400/20 flex items-center justify-center text-white text-xl font-bold border border-emerald-500/20">
-              <User className="w-8 h-8 text-emerald-400" />
+        {/* Left Side: Account Info + Chart */}
+        <div className="grid grid-cols-1 2xl:grid-cols-2 gap-6">
+          {/* Account Info */}
+          <div className="bg-black/30 p-6 rounded-xl border border-emerald-500/20 shadow-sm">
+            <div className="flex flex-col items-center justify-center gap-4 h-full">
+              <div className="w-20 h-20 rounded-full bg-emerald-500/10 border border-emerald-400/20 flex items-center justify-center">
+                <User className="w-8 h-8 text-emerald-400" />
+              </div>
+              <div className="text-center space-y-1">
+                <div className="text-white font-medium text-lg">#LGX-29013</div>
+                <div className="text-sm text-gray-400">Joined: Jan 10, 2024</div>
+                <div className="text-sm text-green-400">Status: Verified ✅</div>
+              </div>
             </div>
-            <div className="space-y-1">
-              <p className="text-white font-semibold text-lg">
-                Rank: <span className="text-yellow-400">Elite</span>
-              </p>
-              <p className="text-sm text-gray-300">ID: #LGX-29013</p>
-              <p className="text-sm text-gray-300">Joined: Jan 10, 2024</p>
-              <p className="text-sm text-green-400">Status: Verified ✅</p>
+          </div>
+
+          {/* Doughnut Chart */}
+          <div className="bg-black/30 p-6 rounded-xl border border-emerald-500/20 hidden 2xl:block">
+            <div className="flex justify-center items-center">
+              <Doughnut
+                data={{
+                  labels: ["Crypto", "Assets", "Farming", "Electronics"],
+                  datasets: [
+                    {
+                      data: [38, 28, 19, 15],
+                      backgroundColor: [
+                        "rgba(16, 185, 129, 0.6)", // emerald
+                        "rgba(251, 191, 36, 0.6)", // yellow
+                        "rgba(34, 197, 94, 0.6)",  // green
+                        "rgba(99, 102, 241, 0.6)", // indigo
+                      ],
+                      borderColor: "rgba(0, 0, 0, 0.3)",
+                      borderWidth: 1,
+                    },
+                  ],
+                }}
+                options={{
+                  responsive: true,
+                  plugins: {
+                    legend: {
+                      position: "bottom",
+                      labels: {
+                        color: "#ccc",
+                      },
+                    },
+                  },
+                }}
+              />
             </div>
           </div>
         </div>
 
-        {/* Leaderboard */}
+        {/* Right Side: Top Investors */}
         <div className="bg-black/30 p-6 rounded-xl border border-emerald-500/20">
           <h2 className="text-xl font-bold text-white mb-4">Top Investors</h2>
           <ul className="space-y-3 text-sm text-gray-300">
-            <li className="flex justify-between items-center">
-              <span className="text-white">#1 • LGX-0021</span>
-              <span className="text-emerald-400 font-bold">$12,500</span>
-            </li>
-            <li className="flex justify-between items-center">
-              <span>#2 • LGX-0345</span>
-              <span className="text-emerald-400 font-semibold">$9,800</span>
-            </li>
-            <li className="flex justify-between items-center">
-              <span>#3 • LGX-0769</span>
-              <span className="text-emerald-400 font-semibold">$8,200</span>
-            </li>
+            {topInvestors.map((investor, index) => (
+              <li key={investor.id} className="flex justify-between items-center">
+                <div className="flex items-center gap-3">
+                  <div className="relative w-8 h-8 bg-emerald-600/20 text-white rounded-full flex items-center justify-center">
+                    <User className="w-4 h-4" />
+                    {index === 0 && (
+                      <span className="absolute -top-1 -right-1 bg-yellow-400 text-black text-[10px] font-bold px-1 rounded-full shadow">
+                        🥇
+                      </span>
+                    )}
+                    {index === 1 && (
+                      <span className="absolute -top-1 -right-1 bg-gray-300 text-black text-[10px] font-bold px-1 rounded-full shadow">
+                        🥈
+                      </span>
+                    )}
+                    {index === 2 && (
+                      <span className="absolute -top-1 -right-1 bg-orange-300 text-black text-[10px] font-bold px-1 rounded-full shadow">
+                        🥉
+                      </span>
+                    )}
+                  </div>
+                  <span className={index === 0 ? "text-white font-semibold" : ""}>
+                    #{index + 1} • {investor.id}
+                  </span>
+                </div>
+
+                <span className={index === 0 ? "text-emerald-400 font-bold" : "text-emerald-400 font-semibold"}>
+                  ${investor.amount.toLocaleString()}
+                </span>
+              </li>
+            ))}
           </ul>
+
+          {/* Total Revenue */}
+          <div className="mt-5 pt-4 border-t border-emerald-500/10 flex justify-between items-center text-sm text-gray-300">
+            <span className="flex items-center gap-2">
+              <Crown className="w-4 h-4 text-yellow-400" />
+              Total Revenue
+            </span>
+            <span className="text-white font-semibold">${totalRevenue.toLocaleString()}</span>
+          </div>
         </div>
       </div>
 
@@ -181,25 +254,6 @@ export default function DashboardPage() {
       <div className="bg-black/30 p-6 rounded-xl border border-emerald-500/20">
         <h2 className="text-xl font-bold text-white mb-4">Monthly Investment Overview</h2>
         <Bar data={monthlyInvestmentData} options={monthlyInvestmentOptions} />
-      </div>
-
-      {/* Recent Activities */}
-      <div className="bg-black/30 p-6 rounded-xl border border-emerald-500/20">
-        <h2 className="text-xl font-bold text-white mb-4">Recent Transactions</h2>
-        <ul className="divide-y divide-emerald-500/10 text-sm text-gray-300">
-          <li className="py-2 flex justify-between">
-            <span>Invested in Package $200</span>
-            <span className="text-emerald-400">+ $200</span>
-          </li>
-          <li className="py-2 flex justify-between">
-            <span>Withdrawn from Wallet</span>
-            <span className="text-red-400">- $150</span>
-          </li>
-          <li className="py-2 flex justify-between">
-            <span>Bonus Interest Added</span>
-            <span className="text-emerald-300">+ $30</span>
-          </li>
-        </ul>
       </div>
 
       {/* Custom Animations */}

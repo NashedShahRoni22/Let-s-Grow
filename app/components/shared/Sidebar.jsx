@@ -63,6 +63,18 @@ export default function Sidebar() {
                     );
                 })}
             </nav>
+
+            {/* Logout Button */}
+            <div className="mt-10 pt-6 border-t border-emerald-500/10">
+                <Link
+                    href="/"
+                    onClick={() => setIsOpen(false)} // Close mobile menu on click
+                    className="flex items-center px-4 py-3 rounded-lg text-sm font-medium transition-all group text-red-300 hover:bg-red-500/10 hover:text-white"
+                >
+                    <X className="w-4 h-4 mr-3 text-red-400 group-hover:text-white" />
+                    Logout
+                </Link>
+            </div>
         </div>
     );
 

@@ -7,7 +7,7 @@ export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <nav className="sticky top-0 left-0 right-0 z-50 bg-gray-900 backdrop-blur-xl border-b border-emerald-500/20">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-gray-900 backdrop-blur-xl border-b border-emerald-500/20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
@@ -42,7 +42,7 @@ export default function Navbar() {
               <Bell className="h-5 w-5" />
               <div className="absolute -top-1 -right-1 w-3 h-3 bg-emerald-400 rounded-full animate-pulse"></div>
             </button>
-            <Link 
+            <Link
               href="/dashboard"
               className="text-gray-300 hover:text-emerald-400 transition-colors p-2 rounded-lg hover:bg-emerald-500/10"
             >
@@ -68,7 +68,7 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="md:hidden bg-black/95 backdrop-blur-xl border-t border-emerald-500/20">
+        <div className="md:hidden bg-gray-900 backdrop-blur-xl border-t border-emerald-500/20">
           <div className="px-4 pt-4 pb-6 space-y-4">
             <Link href="/" className="block text-gray-300 hover:text-emerald-400 transition-colors font-medium py-2">
               Home
@@ -83,18 +83,18 @@ export default function Navbar() {
               Learn
             </Link>
             <hr className="border-gray-700 my-4" />
-            <div className="flex items-center space-x-4">
-              <Link 
-                href="/auth/login"
-                className="text-emerald-400 hover:text-emerald-300 transition-colors font-medium"
-              >
-                Sign In
-              </Link>
+            <div className="flex justify-between">
               <Link
                 href="/auth/register"
                 className="bg-gradient-to-r from-emerald-600 to-green-600 text-white px-4 py-2 rounded-lg font-medium hover:from-emerald-500 hover:to-green-500 transition-all duration-200 shadow-lg shadow-emerald-500/25"
               >
                 Get Started
+              </Link>
+              <Link
+                href="/dashboard"
+                className="text-gray-300 hover:text-emerald-400 transition-colors p-2 rounded-lg hover:bg-emerald-500/10"
+              >
+                <User className="h-5 w-5" />
               </Link>
             </div>
           </div>
