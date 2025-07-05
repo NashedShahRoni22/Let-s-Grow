@@ -2,9 +2,19 @@
 import React, { useState } from 'react';
 import { TrendingUp, Menu, X, User, Bell } from 'lucide-react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const pathname = usePathname();
+  const navLinks = [
+    { href: "/", label: "Home" },
+    { href: "/portfolio", label: "Portfolio" },
+    { href: "/leaderboard", label: "Leaderboard" },
+    { href: "/learn", label: "Learn" },
+  ];
+
+
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-gray-900 backdrop-blur-xl border-b border-emerald-500/20">
@@ -22,18 +32,15 @@ export default function Navbar() {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            <Link href="/" className="text-gray-300 hover:text-emerald-400 transition-colors font-medium">
-              Home
-            </Link>
-            <Link href="/portfolio" className="text-gray-300 hover:text-emerald-400 transition-colors font-medium">
-              Portfolio
-            </Link>
-            <Link href="/leaderboard" className="text-gray-300 hover:text-emerald-400 transition-colors font-medium">
-              Leaderboard
-            </Link>
-            <Link href="/learn" className="text-gray-300 hover:text-emerald-400 transition-colors font-medium">
-              Learn
-            </Link>
+            {navLinks.map(({ href, label }) => (
+              <Link
+                key={href}
+                href={href}
+                className={`${pathname === href ? "text-emerald-400": "text-gray-300"} hover:text-emerald-400 transition-colors font-medium`}
+              >
+                {label}
+              </Link>
+            ))}
           </div>
 
           {/* Desktop Actions */}
@@ -70,18 +77,17 @@ export default function Navbar() {
       {isMenuOpen && (
         <div className="md:hidden bg-gray-900 backdrop-blur-xl border-t border-emerald-500/20">
           <div className="px-4 pt-4 pb-6 space-y-4">
-            <Link href="/" className="block text-gray-300 hover:text-emerald-400 transition-colors font-medium py-2">
-              Home
-            </Link>
-            <Link href="/portfolio" className="block text-gray-300 hover:text-emerald-400 transition-colors font-medium py-2">
-              Portfolio
-            </Link>
-            <Link href="/leaderboard" className="block text-gray-300 hover:text-emerald-400 transition-colors font-medium py-2">
-              Leaderboard
-            </Link>
-            <Link href="/learn" className="block text-gray-300 hover:text-emerald-400 transition-colors font-medium py-2">
-              Learn
-            </Link>
+            {navLinks.map(({ href, label }) => (
+              <Link
+                key={href}
+                href={href}
+                onClick={()=> setIsMenuOpen(false)}
+                className={`block ${pathname === href ? "text-emerald-400": "text-gray-300"} hover:text-emerald-400 transition-colors font-medium py-2`}
+              >
+                {label}
+              </Link>
+            ))}
+
             <hr className="border-gray-700 my-4" />
             <div className="flex justify-between">
               <Link

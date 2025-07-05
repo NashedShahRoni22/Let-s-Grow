@@ -5,7 +5,7 @@ import Portfolio from "./Portfolio";
 
 export default function PortfolioPage() {
     return (
-        <section className="min-h-screen text-white">
+        <section className="text-white">
             <PerformanceHeroSection />
             <Portfolio />
             <ReviewsSection />

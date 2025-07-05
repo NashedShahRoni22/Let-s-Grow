@@ -12,7 +12,7 @@ import {
 export default function PerformanceHeroSection() {
   return (
     <section className="bg-gradient-to-tl from-slate-900 via-gray-900 to-emerald-950 overflow-hidden">
-      <div className="max-w-7xl px-4 sm:px-6 lg:px-8 min-h-screen mx-auto grid lg:grid-cols-2 gap-20 items-center">
+      <div className="max-w-7xl px-4 sm:px-6 lg:px-8 py-24 sm:py-36  mx-auto grid lg:grid-cols-2 gap-20 items-center">
         {/* Left Content */}
         <div className="space-y-8 animate-fadeInUp">
           <div className="inline-flex items-center space-x-2 bg-emerald-500/10 backdrop-blur-md rounded-full px-4 py-2 border border-emerald-500/20 w-max">

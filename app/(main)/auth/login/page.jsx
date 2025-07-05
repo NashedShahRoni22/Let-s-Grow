@@ -113,9 +113,9 @@ export default function Page() {
                   Remember me
                 </label>
               </div>
-              <a href="#" className="text-sm text-emerald-400 hover:text-emerald-300 font-medium transition-colors">
+              <Link href="/auth/forget-password" className="text-sm text-emerald-400 hover:text-emerald-300 font-medium transition-colors">
                 Forgot password?
-              </a>
+              </Link>
             </div>
 
             {/* Submit Button */}
