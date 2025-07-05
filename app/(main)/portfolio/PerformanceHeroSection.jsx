@@ -1,44 +1,68 @@
-import { TrendingUp, BarChart3, Activity } from "lucide-react";
+'use client';
+
+import {
+  TrendingUp,
+  BarChart3,
+  Activity,
+  ShieldCheck,
+  HandCoins,
+  DollarSign,
+} from 'lucide-react';
 
 export default function PerformanceHeroSection() {
   return (
-    <section className="min-h-[80vh] bg-gradient-to-tl from-slate-900 via-gray-900 to-emerald-950 flex items-center overflow-hidden px-6">
-      <div className="max-w-7xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-16 py-24">
+    <section className="bg-gradient-to-tl from-slate-900 via-gray-900 to-emerald-950 overflow-hidden">
+      <div className="max-w-7xl px-4 sm:px-6 lg:px-8 min-h-screen mx-auto grid lg:grid-cols-2 gap-20 items-center">
         {/* Left Content */}
-        <div className="space-y-6 animate-fadeInUp">
-          <div className="inline-flex items-center space-x-2 bg-emerald-500/10 backdrop-blur-sm rounded-full px-4 py-2 border border-emerald-500/20">
+        <div className="space-y-8 animate-fadeInUp">
+          <div className="inline-flex items-center space-x-2 bg-emerald-500/10 backdrop-blur-md rounded-full px-4 py-2 border border-emerald-500/20 w-max">
             <BarChart3 className="h-4 w-4 text-emerald-400" />
-            <span className="text-emerald-400 text-sm font-medium">Smart Insights</span>
+            <span className="text-emerald-400 text-sm font-medium">Live Growth Insights</span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight">
-            Real-Time Performance <br />
+
+          <h1 className="text-4xl md:text-5xl font-bold text-white leading-tight tracking-tight">
+            Performance Backed by <br />
             <span className="bg-gradient-to-r from-emerald-400 to-green-300 bg-clip-text text-transparent">
-              You Can Trust
+              Real Business Results
             </span>
-          </h2>
-          <p className="text-gray-300 text-lg max-w-md leading-relaxed">
-            Track how your investments are growing with live metrics and transparent results powered by AI and data analytics.
+          </h1>
+
+          <p className="text-gray-300 text-lg max-w-xl leading-relaxed">
+            At Let's Grow, your investment isn't locked — it's working in the real market. Watch ROI build over time,
+            powered by data, smart lending, and successful product resale cycles.
           </p>
+
           <div className="pt-4">
             <button className="bg-gradient-to-r from-emerald-600 to-green-600 px-6 py-3 rounded-lg text-white font-bold hover:from-emerald-500 hover:to-green-500 transition-all duration-200 shadow-lg shadow-emerald-500/25">
-              Explore Highlights
+              See Investment Stats
             </button>
           </div>
         </div>
 
-        {/* Right Content: Animated Visuals */}
-        <div className="relative w-full h-full">
-          <div className="relative z-10 flex flex-col items-center justify-center space-y-6">
-            <div className="bg-black/30 backdrop-blur-md rounded-2xl p-6 border border-emerald-500/20 text-center w-72 shadow-2xl animate-fadeInUp delay-300">
-              <TrendingUp className="h-8 w-8 mx-auto text-emerald-400 mb-2" />
-              <div className="text-2xl font-bold text-white">+8.6% ROI</div>
-              <div className="text-gray-400 text-sm">Average monthly return</div>
-            </div>
-            <div className="bg-black/30 backdrop-blur-md rounded-2xl p-6 border border-emerald-500/20 text-center w-72 shadow-2xl animate-fadeInUp delay-1000">
-              <Activity className="h-8 w-8 mx-auto text-emerald-400 mb-2" />
-              <div className="text-2xl font-bold text-white">$9.3M+</div>
-              <div className="text-gray-400 text-sm">Withdrawals processed</div>
-            </div>
+        {/* Right Stats Cards */}
+        <div className="relative w-full grid sm:grid-cols-2 gap-8 animate-fadeInUp delay-300">
+          <div className="bg-black/30 backdrop-blur-md rounded-2xl p-6 border border-emerald-500/20 text-center shadow-xl">
+            <TrendingUp className="h-8 w-8 mx-auto text-emerald-400 mb-3" />
+            <div className="text-2xl font-bold text-white">+8.6% ROI</div>
+            <p className="text-gray-400 text-sm mt-1">Average Monthly Return</p>
+          </div>
+
+          <div className="bg-black/30 backdrop-blur-md rounded-2xl p-6 border border-emerald-500/20 text-center shadow-xl animate-fadeInUp delay-1000">
+            <Activity className="h-8 w-8 mx-auto text-emerald-400 mb-3" />
+            <div className="text-2xl font-bold text-white">$9.3M+</div>
+            <p className="text-gray-400 text-sm mt-1">Withdrawals Processed</p>
+          </div>
+
+          <div className="bg-black/30 backdrop-blur-md rounded-2xl p-6 border border-emerald-500/20 text-center shadow-xl animate-fadeInUp delay-2000">
+            <ShieldCheck className="h-8 w-8 mx-auto text-emerald-400 mb-3" />
+            <div className="text-2xl font-bold text-white">Secure Returns</div>
+            <p className="text-gray-400 text-sm mt-1">Your capital is protected</p>
+          </div>
+
+          <div className="bg-black/30 backdrop-blur-md rounded-2xl p-6 border border-emerald-500/20 text-center shadow-xl animate-fadeInUp delay-3000">
+            <HandCoins className="h-8 w-8 mx-auto text-emerald-400 mb-3" />
+            <div className="text-2xl font-bold text-white">$12M+</div>
+            <p className="text-gray-400 text-sm mt-1">Funded to Business</p>
           </div>
         </div>
       </div>
@@ -48,7 +72,7 @@ export default function PerformanceHeroSection() {
         @keyframes fadeInUp {
           from {
             opacity: 0;
-            transform: translateY(30px);
+            transform: translateY(40px);
           }
           to {
             opacity: 1;
@@ -56,21 +80,8 @@ export default function PerformanceHeroSection() {
           }
         }
 
-        @keyframes float {
-          0%, 100% {
-            transform: translateY(0px);
-          }
-          50% {
-            transform: translateY(-20px);
-          }
-        }
-
         .animate-fadeInUp {
-          animation: fadeInUp 0.6s ease-out forwards;
-        }
-
-        .animate-float {
-          animation: float 6s ease-in-out infinite;
+          animation: fadeInUp 0.7s ease-out forwards;
         }
 
         .delay-300 {
@@ -83,6 +94,10 @@ export default function PerformanceHeroSection() {
 
         .delay-2000 {
           animation-delay: 2s;
+        }
+
+        .delay-3000 {
+          animation-delay: 3s;
         }
       `}</style>
     </section>
